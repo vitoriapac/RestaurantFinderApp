@@ -1,5 +1,40 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Container = styled.div`
-  background-color: black;
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Container = styled.aside`
+  background-color: ${(props) => props.theme.colors.background};
+  width: 360px;
+  height: 100vh;
+  overflow-y: auto;
+`;
+
+export const Search = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 1rem;
+`;
+
+export const Logo = styled.img`
+  margin-bottom: 1.25rem;
+`;
+
+export const Map = styled.div`
+  background-color: green;
+  width: 100vw;
+  height: 100vh;
+`;
+
+export const CarouselTitle = styled.h1`
+  font-family: ${(props) => props.theme.fonts.regular};
+  color: ${(props) => props.theme.colors.text};
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 2rem;
+  margin: 1rem 0;
 `;
