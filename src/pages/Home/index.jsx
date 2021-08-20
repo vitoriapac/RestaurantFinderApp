@@ -5,6 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import logo from '../../assets/logo.svg'
 import restaurante from '../../assets/restaurante-fake.png'
+import { Card } from '../../components'
 
 import { Container, Search, Logo, Wrapper, Map, CarouselTitle } from './styles'
 
@@ -16,7 +17,7 @@ const Home = () => {
     infinite: true,
     speed: 300,
     slidesToShow: 3,
-    slidesToScroll: 4,
+    slidesToScroll: 3,
     adaptiveheight: true,
   };
 
@@ -37,24 +38,14 @@ const Home = () => {
              Na sua Área
             </CarouselTitle>
             <Slider {...settings}>
-              <div>
-                <img src={restaurante} alt="Restaurante" />
-              </div>
-              <div>
-                <img src={restaurante} alt="Restaurante" />
-              </div>
-              <div>
-                <img src={restaurante} alt="Restaurante" />
-              </div>
-              <div>
-                <img src={restaurante} alt="Restaurante" />
-              </div>
-              <div>
-                <img src={restaurante} alt="Restaurante" />
-              </div>
-              <div>
-                <img src={restaurante} alt="Restaurante" />
-              </div>
+              <Card photo={restaurante} title="Restaurante" />
+              <Card photo={restaurante} title="Parque" />
+              <Card photo={restaurante} title="Restaurante" />
+              <Card photo={restaurante} title="Ifood" />
+              <Card photo={restaurante} title="Restaurante" />
+              <Card photo={restaurante} title="Parque" />
+              <Card photo={restaurante} title="Restaurante" />
+              <Card photo={restaurante} title="Ifood" />
             </Slider>
         </Search>
       </Container>
