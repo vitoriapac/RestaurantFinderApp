@@ -5,12 +5,13 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import logo from '../../assets/logo.svg'
 import restaurante from '../../assets/restaurante-fake.png'
-import { Card, RestaurantCard, Modal } from '../../components'
+import { Card, RestaurantCard, Modal, Map } from '../../components'
 
-import { Container, Search, Logo, Wrapper, Map, CarouselTitle } from './styles'
+import { Container, Search, Logo, Wrapper, CarouselTitle } from './styles'
 
 const Home = () => {
   const [inputValue, setInputValue] = useState('');
+  const [query, setQuery] = useState(null);
   const [modalOpened, setModalOpened] = useState(false);
 
   const settings = {
@@ -21,6 +22,12 @@ const Home = () => {
     slidesToScroll: 3,
     adaptiveheight: true,
   };
+
+  function handleKeyPress(e) {
+    if(e.key === 'Enter') {
+      setQuery(inputValue);
+    }
+  }
 
   return (
     <Wrapper>
@@ -33,6 +40,7 @@ const Home = () => {
              trailingIcon={<SearchIcon role="button" icon="search"/>}
             ><Input
                value={inputValue}
+               onKeyPress={handleKeyPress}
                onChange={(e) => setInputValue(e.target.value)} />
             </TextField>
             <CarouselTitle>
@@ -51,7 +59,7 @@ const Home = () => {
         </Search>
         <RestaurantCard />
       </Container>
-      <Map />
+      <Map query={query} />
       <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}/>
     </Wrapper>  
   );
