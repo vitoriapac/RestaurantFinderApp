@@ -25,6 +25,7 @@ export const MapContainer = (props) => {
 
   function getRestaurantById(placeId) {
     const service = new google.maps.places.PlacesService(map);
+    dispatch(setRestaurant(null));
 
     const request = {
       placeId,
@@ -34,13 +35,14 @@ export const MapContainer = (props) => {
     service.getDetails(request, (place, status) => {
       if(status === google.maps.places.PlacesServiceStatus.OK){
         //console.log('restaurant>>>', place);
-        dispatch(setRestaurant(place))
+        dispatch(setRestaurant(place));
       }
     });
   }
 
   function searchByQuery(query) {
     const service = new google.maps.places.PlacesService(map);
+    dispatch(setRestaurants([]));
 
     const request = {
       location: map.center,
@@ -52,13 +54,14 @@ export const MapContainer = (props) => {
     service.textSearch(request, (results, status) => {
       if(status === google.maps.places.PlacesServiceStatus.OK){
         //console.log('restaurant>>>', results);
-        dispatch(setRestaurants(results))
+        dispatch(setRestaurants(results));
       }
     });
   }
 
   function searchNearby(map, center) {
     const service = new google.maps.places.PlacesService(map);
+    dispatch(setRestaurants([]));
 
     const request = {
       location: center,
@@ -69,14 +72,14 @@ export const MapContainer = (props) => {
     service.nearbySearch(request, (results, status) => {
       if(status === google.maps.places.PlacesServiceStatus.OK){
         //console.log('restaurant>>>', results);
-        dispatch(setRestaurants(results))
+        dispatch(setRestaurants(results));
       }
     });
   }
 
   function onMapReady(_, map) {
     setMap(map);
-    searchNearby(map, map.center)
+    searchNearby(map, map.center);
   }
 
   return (

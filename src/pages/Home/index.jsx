@@ -6,7 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import logo from '../../assets/logo.svg'
 import restaurante from '../../assets/restaurante-fake.png'
-import { Card, RestaurantCard, Modal, Map } from '../../components'
+import { Card, RestaurantCard, Modal, Map, Loader, Skeleton } from '../../components'
 
 import { Container, Search, Logo, Wrapper, CarouselTitle, ModalTitle, ModalContent } from './styles'
 
@@ -52,6 +52,8 @@ const Home = () => {
                onKeyPress={handleKeyPress}
                onChange={(e) => setInputValue(e.target.value)} />
             </TextField>
+            {restaurants.length > 0 ? (
+            <>
             <CarouselTitle>
              Na sua Área
             </CarouselTitle>
@@ -59,8 +61,10 @@ const Home = () => {
               {restaurants.map((restaurant) =>
               <Card
               key={restaurant.place_id}
-              photo={restaurant.photos ? restaurant.photos[0].getUrl() : restaurante} title={restaurant.name} />)}
-            </Slider>
+              photo={restaurant.photos ? restaurant.photos[0].getUrl() : restaurante} title=  {restaurant.name} />)}
+              </Slider>
+            </>
+            ) : (<Loader />)}
         </Search>
 
         {restaurants.map(
@@ -72,13 +76,25 @@ const Home = () => {
       </Container>
       <Map query={query} placeId={placeId} />
       <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
-        <ModalTitle>{restaurantSelected?.name}</ModalTitle>
-        <ModalContent>{restaurantSelected?.formatted_phone_number}</ModalContent>
-        <ModalContent>{restaurantSelected?.formatted_address}</ModalContent>
-        <ModalContent>{restaurantSelected?.opening_hours?.open_now ? 'Aberto agora :)'
-        : 'Infelizmente estamos fechados :('}</ModalContent>
+        {restaurantSelected ? (
+          <>
+            <ModalTitle>{restaurantSelected?.name}</ModalTitle>
+            <ModalContent>{restaurantSelected?.formatted_phone_number}</ModalContent>
+            <ModalContent>{restaurantSelected?.formatted_address}</ModalContent>
+            <ModalContent>{restaurantSelected?.opening_hours?.open_now ? 'Aberto agora :)'
+        : 'Infelizmente esta fechado no momento :('}</ModalContent>
+          </>
+        ) : (
+          <>
+            <Skeleton width='10px' height="10px" />
+            <Skeleton width='10px' height="10px" />
+            <Skeleton width='10px' height="10px" />
+            <Skeleton width='10px' height="10px" />
+          </>  
+        )}
       </ Modal>
     </Wrapper>  
   );
 }
+
 export default Home;
