@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/static/js/main.9f2d7fb1.chunk.js",
+    "main.js.map": "/static/js/main.9f2d7fb1.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.aeee534e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.aeee534e.js.map",
+    "static/css/2.4d5354aa.chunk.css": "/static/css/2.4d5354aa.chunk.css",
+    "static/js/2.099b2284.chunk.js": "/static/js/2.099b2284.chunk.js",
+    "static/js/2.099b2284.chunk.js.map": "/static/js/2.099b2284.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.4d5354aa.chunk.css.map": "/static/css/2.4d5354aa.chunk.css.map",
+    "static/js/2.099b2284.chunk.js.LICENSE.txt": "/static/js/2.099b2284.chunk.js.LICENSE.txt",
+    "static/media/logo.4f21662c.svg": "/static/media/logo.4f21662c.svg",
+    "static/media/restaurante-fake.a2be0fb6.png": "/static/media/restaurante-fake.a2be0fb6.png",
+    "static/media/slick-theme.css": "/static/media/slick.c94f7671.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aeee534e.js",
+    "static/css/2.4d5354aa.chunk.css",
+    "static/js/2.099b2284.chunk.js",
+    "static/js/main.9f2d7fb1.chunk.js"
+  ]
+}
